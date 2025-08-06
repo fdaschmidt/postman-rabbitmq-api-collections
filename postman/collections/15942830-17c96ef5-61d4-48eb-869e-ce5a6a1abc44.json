@@ -133,7 +133,7 @@
 					"response": []
 				},
 				{
-					"name": "Retrieves an individual binding between an exchange and a queue. Copy",
+					"name": "Retrieves an individual binding between an source and a destination.",
 					"id": "15942830-f896689c-c565-4931-8220-d10af568db2a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
