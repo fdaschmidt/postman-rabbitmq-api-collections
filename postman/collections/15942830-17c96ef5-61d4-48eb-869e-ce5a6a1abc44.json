@@ -1,0 +1,3042 @@
+{
+	"info": {
+		"_postman_id": "15942830-17c96ef5-61d4-48eb-869e-ce5a6a1abc44",
+		"name": "RabbitMQ HTTP API - Get Only Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bindings",
+			"item": [
+				{
+					"name": "A list of all bindings.",
+					"id": "15942830-8a25f336-c7c4-446d-be0c-57a7d398c990",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/bindings",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"bindings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all bindings for a Vhost",
+					"id": "15942830-937b123a-f74d-4fb5-b5d9-30d8da803e4a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/bindings/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"bindings",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all bindings between an exchange and a queue.",
+					"id": "15942830-bb7f2651-7b5a-4045-90cd-36cc0c40b83c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/bindings/{{vhost}}/e/{{exchange_name}}/q/{{queue_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"bindings",
+								"{{vhost}}",
+								"e",
+								"{{exchange_name}}",
+								"q",
+								"{{queue_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves an individual binding between an exchange and a queue.",
+					"id": "15942830-a946367f-6efc-4e92-8c3e-dd5cb229b722",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/bindings/{{vhost}}/e/{{exchange_name}}/q/{{queue_name}}/{{properties_key}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"bindings",
+								"{{vhost}}",
+								"e",
+								"{{exchange_name}}",
+								"q",
+								"{{queue_name}}",
+								"{{properties_key}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves an individual binding between an exchange and a queue. Copy",
+					"id": "15942830-f896689c-c565-4931-8220-d10af568db2a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/bindings/{{vhost}}/e/{{exchange_source}}/e/{{exchange_destination}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"bindings",
+								"{{vhost}}",
+								"e",
+								"{{exchange_source}}",
+								"e",
+								"{{exchange_destination}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns the details of a specific exchange-to-exchange binding.",
+					"id": "15942830-ed1fc246-5785-4250-9fbe-307204b4d006",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/bindings/{{vhost}}/e/{{exchange_source}}/e/{{exchange_destination}}/{{properties_key}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"bindings",
+								"{{vhost}}",
+								"e",
+								"{{exchange_source}}",
+								"e",
+								"{{exchange_destination}}",
+								"{{properties_key}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-114a4aa6-12d4-4c73-b4af-3a20cc983bcd"
+		},
+		{
+			"name": "Exchanges",
+			"item": [
+				{
+					"name": "A list of all exchanges. Use pagination parameters to list exchanges.",
+					"id": "15942830-8bc04231-3f98-47bc-ae09-6eeab1aaa01f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/exchanges",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"exchanges"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{exchange_name}}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exchange Details",
+					"id": "15942830-ee561bce-b41f-48e9-8f4d-357dcb20e0d9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/exchanges/{{vhost}}/{{exchange_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"exchanges",
+								"{{vhost}}",
+								"{{exchange_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns metrics of an individual exchange.",
+					"id": "15942830-4475ccca-a22b-4aa2-896b-967b12fea85d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/exchanges/{{vhost}}/{{exchange_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"exchanges",
+								"{{vhost}}",
+								"{{exchange_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all exchanges in a given virtual host.",
+					"id": "15942830-6b48357e-ad03-45e4-a1c5-23339643b5f0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/exchanges/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"exchanges",
+								"{{vhost}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "5",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "demo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all bindings in which a given exchange is the source.",
+					"id": "15942830-bd50df00-f703-4f2c-8de5-519af22d31ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/exchanges/{{vhost}}t}/{{exchange_name}}/bindings/source",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"exchanges",
+								"{{vhost}}t}",
+								"{{exchange_name}}",
+								"bindings",
+								"source"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all bindings in which a given exchange is the destination.",
+					"id": "15942830-74c956b4-56f4-431b-8482-cf7f628a8f7d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/exchanges/{{vhost}}t}/{{exchange_name}}/bindings/destination",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"exchanges",
+								"{{vhost}}t}",
+								"{{exchange_name}}",
+								"bindings",
+								"destination"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-3e04ed26-94d8-4043-88e2-8180163e86ca"
+		},
+		{
+			"name": "Vhosts",
+			"item": [
+				{
+					"name": "Returns a list of all virtual hosts in the cluster.",
+					"id": "15942830-8b1d7d63-fc68-4f74-b3a7-b794f29ba55e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/vhosts/",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"vhosts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns metrics of a specific virtual host.",
+					"id": "15942830-73513db1-774d-479d-857f-f5a135fc2d29",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/vhosts/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"vhosts",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all open channels in a specific virtual host.",
+					"id": "15942830-6e3461fb-0780-4304-b4b4-7c510f0d975c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/vhosts/{{vhost}}/channels",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"vhosts",
+								"{{vhost}}",
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all open connections in a specific virtual host.",
+					"id": "15942830-df6fbe65-3f79-4a69-aee6-cd40484b3f4e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/vhosts/{{vhost}}/connections",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"vhosts",
+								"{{vhost}}",
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all permissions for a given virtual host.",
+					"id": "15942830-12315c57-ae72-4ac6-a08a-de26a10cb9cf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/vhosts/{{vhost}}/permissions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"vhosts",
+								"{{vhost}}",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all topic permissions for a given virtual host.",
+					"id": "15942830-73b587c7-21a0-47c0-97a3-79baec00fc59",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/vhosts/{{vhost}}/topic-permissions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"vhosts",
+								"{{vhost}}",
+								"topic-permissions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-673efc75-c561-46e4-a5d6-d3ad7761764a"
+		},
+		{
+			"name": "Queues",
+			"item": [
+				{
+					"name": "A list of all queues across all virtual hosts returning a reduced set of fields.",
+					"id": "15942830-55630faa-8a29-4848-b70f-2720be568c7f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/queues",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"queues"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "d",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all queues containing all available information about the queues",
+					"id": "15942830-a8a5f2b9-e7f3-4e11-bf61-e056d310c7d2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/queues/detailed",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"queues",
+								"detailed"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "d",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all queues containing all available information about the queues",
+					"id": "15942830-d47773e9-ce59-451a-a0c5-c96171b14b8e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/queues/{{vhost}}/{{queue_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"queues",
+								"{{vhost}}",
+								"{{queue_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all queues in the given virtual host",
+					"id": "15942830-656e4345-4a8e-450b-9208-b29aa7c89843",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/queues/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"queues",
+								"{{vhost}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "demo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns metrics of a queue.",
+					"id": "15942830-1d96e18d-b571-43fd-b764-72644a5c2b0b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/queues/{{vhost}}/{{queue_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"queues",
+								"{{vhost}}",
+								"{{queue_name}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "demo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all bindings on a given queue.",
+					"id": "15942830-3a2c2732-ff73-4342-a36c-92c3f95403ee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/queues/{{vhost}}/{{queue_name}}/bindings",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"queues",
+								"{{vhost}}",
+								"{{queue_name}}",
+								"bindings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "demo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-6c206974-cecc-44a1-aa46-853aa96b80c9"
+		},
+		{
+			"name": "User (Internal data store)",
+			"item": [
+				{
+					"name": "Lists all users in the cluster",
+					"id": "15942830-60a7fa6d-dc53-46bd-ada3-c187d723ad7a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/users",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists the users that do not have any permissions (cannot access any virtual hosts) and could be safely deleted.",
+					"id": "15942830-3dc346ca-6a38-47c1-8595-7d3ecf725ea3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/users/without-permissions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"without-permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns information about a user in the internal data store.",
+					"id": "15942830-300708c3-ef2b-4956-bab7-f835476ba01d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/users/{{user_internal_store}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_internal_store}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all permissions for a given user.",
+					"id": "15942830-ab16a235-fc6d-45b8-939a-3839d681f5a8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/users/{{user_internal_store}}/permissions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_internal_store}}",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all topic permissions for a given user.",
+					"id": "15942830-49b4aaf2-a4da-4206-a72a-70c45d8916c3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/users/{{user_internal_store}}/topic-permissions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_internal_store}}",
+								"topic-permissions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-1fe34e90-fda9-49fc-abbf-4fc56f06b9ad"
+		},
+		{
+			"name": "User limits",
+			"item": [
+				{
+					"name": "Lists per-user limits for all users.",
+					"id": "15942830-ae2a3735-27d2-45e5-8186-0a7cba085153",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/user-limits",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"user-limits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists per-user limits for a specific user.",
+					"id": "15942830-92b98f90-8d3e-4852-8f26-eb07afaffe1a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/user-limits/{{user_internal_store}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"user-limits",
+								"{{user_internal_store}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-1bab7b63-f11f-482a-86e1-f00006db90b3"
+		},
+		{
+			"name": "Permissions",
+			"item": [
+				{
+					"name": "A list of all user permissions in the cluster.",
+					"id": "15942830-d339fd7b-79ca-4865-9c89-8ce002af1995",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/permissions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns a user's permissions in the given virtual host.",
+					"id": "15942830-e6e35ec8-b951-454a-8af7-1421e848cca1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/permissions/{{vhost}}/{{user_internal_store}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"permissions",
+								"{{vhost}}",
+								"{{user_internal_store}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-132932a0-389e-40af-8ee4-a1b86d073817"
+		},
+		{
+			"name": "Topic-Permisssions",
+			"item": [
+				{
+					"name": "Lists all topic exchange permissions in the cluster.",
+					"id": "15942830-617df65f-c088-436e-a8b6-745ced3e5e5c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/topic-permissions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"topic-permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns a user's topic exchange permissions in the given virtual host.",
+					"id": "15942830-c1534ddc-7f9f-44eb-98ae-c1fe0dabe6a0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/topic-permissions/{{vhost}}/{{user_internal_store}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"topic-permissions",
+								"{{vhost}}",
+								"{{user_internal_store}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-d2a56879-9ffb-4e0d-90b2-49db94d7e4f4"
+		},
+		{
+			"name": "Parameters",
+			"item": [
+				{
+					"name": "Returns a list of runtime parameters across all virtual hosts in the cluster.",
+					"id": "15942830-81b5852e-1c4c-42ef-b3a8-735d4e4646ea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/parameters",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"parameters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns a list of parameters across all virtual hosts in the cluster for a component",
+					"id": "15942830-0be9de7c-aefa-4c80-99f0-49ee07970e04",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/parameters/{{parameter_component}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"parameters",
+								"{{parameter_component}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns a list of parameters for some components in a virtual host",
+					"id": "15942830-f70051c4-91a0-4970-8b37-2b121395e936",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/parameters/{{parameter_component}}/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"parameters",
+								"{{parameter_component}}",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns a list of parameters for a component in a virtual host by name",
+					"id": "15942830-60ab99dc-0654-4194-b858-591cb7e7ffef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/parameters/{{parameter_component}}/{{vhost}}/{{parameter_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"parameters",
+								"{{parameter_component}}",
+								"{{vhost}}",
+								"{{parameter_name}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-78b301d4-0875-46c0-9f24-c40a342d41ef"
+		},
+		{
+			"name": "Global-Parameters",
+			"item": [
+				{
+					"name": "Lists all global runtime parameters in the cluster.",
+					"id": "15942830-53c9b698-1728-4c5e-b9f0-a12b24a44be4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/global-parameters",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"global-parameters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns the value (definition) of the given global runtime parameter.",
+					"id": "15942830-43820e08-5a52-4ff5-925c-b6d956566ef3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/global-parameters/{{parameter_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"global-parameters",
+								"{{parameter_name}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-b5a542f2-d765-4a5c-a05d-fbd4ebe8aa7c"
+		},
+		{
+			"name": "Policies",
+			"item": [
+				{
+					"name": "Lists policies across all virtual hosts in the cluster.",
+					"id": "15942830-462fc576-4987-4a8c-8d72-1ee854d07b84",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/policies",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists policies in the given virtual host.",
+					"id": "15942830-974efd86-c862-4f5e-90a7-5bc301917aaf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/policies/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"policies",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns a policy definition.",
+					"id": "15942830-dae4f3b3-3d3e-40b5-bae8-1ce5d73c6fed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/policies/{{vhost}}/{{policy_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"policies",
+								"{{vhost}}",
+								"{{policy_name}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-7f13a796-427b-4eee-b9b8-191046e5a17a"
+		},
+		{
+			"name": "Operator-Policies",
+			"item": [
+				{
+					"name": "Lists operator policies across all virtual hosts in the cluster.",
+					"id": "15942830-40db2e7a-254d-4a39-9046-a1d1d7d40408",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/operator-policies",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"operator-policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns an operator policy definition.",
+					"id": "15942830-59f560df-5e4d-492a-ba26-d952d47fdfba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/operator-policies/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"operator-policies",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns an operator policy definition.",
+					"id": "15942830-a15781de-6563-48db-b407-a5c9e2fb2071",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/operator-policies/{{vhost}}/{{op-name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"operator-policies",
+								"{{vhost}}",
+								"{{op-name}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-1bf07e96-7705-49f1-867d-e28e5f466f4a"
+		},
+		{
+			"name": "Vhost-limits",
+			"item": [
+				{
+					"name": "Lists all virtual host limits configured across the cluster.",
+					"id": "15942830-a894e8ef-bde2-47f6-ae26-205479b098f0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/vhost-limits",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"vhost-limits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists virtual host limits configured for the target virtual host.",
+					"id": "15942830-3346123b-cb5c-4ccc-9d3e-9b03b6366899",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/vhost-limits/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"vhost-limits",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-29bf3c61-c0c0-4573-9cb5-3fd36414fab4"
+		},
+		{
+			"name": "Federation-links",
+			"item": [
+				{
+					"name": "Provides status for all federation links across all virtual hosts in the cluster.",
+					"id": "15942830-248f372c-f47d-46dc-a11b-9808168d2b77",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/federation-links",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"federation-links"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Provides status for all federation links in the given virtual host.",
+					"id": "15942830-bc39fd64-8c09-4f0d-8cd4-c36d602229e4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/federation-links/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"federation-links",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-7c2f20a0-ffa0-43a7-9bd2-6f7d6f175db7"
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "A list of client authentication attempts registered by the node.",
+					"id": "15942830-127cbaca-955f-46b2-a46e-1109f1119366",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/auth/attempts/{{node_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"attempts",
+								"{{node_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of client authentication attempts grouped by remote address and username.",
+					"id": "15942830-33fe9608-b7d4-40ca-a591-3400c1e65747",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/auth/attempts/{{node_name}}/source",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"attempts",
+								"{{node_name}}",
+								"source"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hashes the provided password according to the currently configured password hashing algorithm.",
+					"id": "15942830-50ef1577-7f78-4aa0-a82a-bda5f5e9c36f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/auth/hash_password/{{rabbitmq_pass}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"hash_password",
+								"{{rabbitmq_pass}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details about the OAuth 2 configuration.",
+					"id": "15942830-11078f7a-46a9-4859-96e5-3aadec487701",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/auth",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-70c87680-a9d5-491a-8e40-822d669eb9dc"
+		},
+		{
+			"name": "Stream",
+			"item": [
+				{
+					"name": "A list of all open stream protocol connections in a specific virtual host.",
+					"id": "15942830-27be78be-508c-4a0b-8f83-95c36afef54e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/connections/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"connections",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns metrics of a specific stream protocol connection.",
+					"id": "15942830-75d7d59e-e569-4ef4-886e-ee09fd027d07",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/connections/{{vhost}}/{{stream_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"connections",
+								"{{vhost}}",
+								"{{stream_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists known publishers on a stream protocol connection.",
+					"id": "15942830-a11d8f26-00c4-4b3f-b83a-3f1e5614684a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/connections/{{vhost}}/{{stream_name}}/publishers",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"connections",
+								"{{vhost}}",
+								"{{stream_name}}",
+								"publishers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists known consumers on a stream protocol connection",
+					"id": "15942830-2a439785-f14f-4ec7-89f2-69c46903d9b0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/connections/{{vhost}}/{{stream_name}}/consumers",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"connections",
+								"{{vhost}}",
+								"{{stream_name}}",
+								"consumers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "he list of known publishers across all stream protocol connections.",
+					"id": "15942830-795aa632-efa2-46c0-bfc9-160c29b655ea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/publishers",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"publishers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "The list of known publishers for all stream protocol connections in the given virtual host.",
+					"id": "15942830-b72dc1e2-8722-43f6-8852-809e1f09f041",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/publishers/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"publishers",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "The list of known publishers to the given stream across all stream protocol connections.",
+					"id": "15942830-9ea0a073-0783-4e62-a999-887b713bc8fe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/publishers/{{vhost}}/{{stream_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"publishers",
+								"{{vhost}}",
+								"{{stream_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Use pagination parameters to list consumers,",
+					"id": "15942830-8526cd57-5f11-4499-99b6-76f626cb4920",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/consumers",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"consumers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "The list of stream consumers in a specific virtual host.",
+					"id": "15942830-517e1d8a-7deb-4df5-b27c-2a353e9d2399",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/stream/consumers/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"stream",
+								"consumers",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-c61528af-4876-4ef8-9bb0-f727ff3e333c"
+		},
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Responds a 200 OK if there are no alarms in effect in the cluster",
+					"id": "15942830-c8113156-a7f4-4ba9-9d4b-a3250e304909",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/alarms",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"alarms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Responds a 200 OK if there are no alarms in effect in the cluster",
+					"id": "15942830-5448a092-2f14-4a38-af2d-77fc534a6f46",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/local-alarms",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"local-alarms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checks the expiration date of every certificate found in the PEM certificate bundles",
+					"id": "15942830-b1ecae75-f203-41cf-bfee-bbbe9b7425a9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/certificate-expiration/{{within}}/{{unit}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"certificate-expiration",
+								"{{within}}",
+								"{{unit}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Responds a 200 OK if there is an active listener on the given port",
+					"id": "15942830-dcc0a716-b4c7-462d-ac68-ef7efdac6066",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/port-listener/{{port}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"port-listener",
+								"{{port}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Responds a 200 OK if if all given protocols have active listeners.",
+					"id": "15942830-0dfd6d3f-2f6e-4d11-96ed-6d6c88621374",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/protocol-listener/{{protocols}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"protocol-listener",
+								"{{protocols}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Responds a 200 OK if all virtual hosts and running on the target node.",
+					"id": "15942830-b93cb092-00f0-491f-90ee-f089b048c468",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/virtual-hosts",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"virtual-hosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checks if there are quorum queues with minimum online quorum",
+					"id": "15942830-703c6afb-2f5c-4303-b4af-138f9d20ecf8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/node-is-quorum-critical",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"node-is-quorum-critical"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Responds a 200 OK if the target node is booted, running, and ready to serve clients",
+					"id": "15942830-aa5a4e67-d4ee-4844-8dc6-eef7935cc438",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/is-in-service",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"is-in-service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Responds a 200 OK if the target node has fewer connections to the AMQP and AMQPS ports than the configured maximum.",
+					"id": "15942830-febad97d-a49c-4e46-aa94-119849271be2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/below-node-connection-limit",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"below-node-connection-limit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Responds a 200 OK if the target node is ready to serve clients.",
+					"id": "15942830-18ee03bc-0748-4dfe-b367-a3af5c835d34",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/health/checks/ready-to-serve-clients",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"checks",
+								"ready-to-serve-clients"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-8fc833a9-8dfa-45e2-80a9-b526a64fa69e"
+		},
+		{
+			"name": "Rebalance",
+			"item": [
+				{
+					"name": "Rebalances all queues in all vhosts.",
+					"id": "15942830-4fd44287-0262-4fe2-a282-3f112e8ab6cf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/rebalance/queues",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"rebalance",
+								"queues"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-738d691c-e366-4537-85c1-04c654595162"
+		},
+		{
+			"name": "Divers",
+			"item": [
+				{
+					"name": "Returns the username of the authenticated user.",
+					"id": "15942830-4021eefa-26c9-4327-995f-33a78fc66d26",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/whoami",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"whoami"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of registered extensions to the management plugin.",
+					"id": "15942830-e542927a-f695-45b6-8e54-d948829978aa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/extensions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"extensions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Overview",
+					"id": "15942830-02752458-98fa-49d7-854e-6914434e130d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/overview",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"overview"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-45268fa5-49b0-498a-899d-1cb9c42b90bd"
+		},
+		{
+			"name": "Nodes",
+			"item": [
+				{
+					"name": "Lists all nodes in the cluster together with their metrics.",
+					"id": "15942830-42adb98f-f3c3-46af-9193-0ad27f0ab344",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/nodes",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns metrics of an individual cluster node.",
+					"id": "15942830-573d853e-3612-4b85-b265-db57cb0ec68e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/nodes/{{node_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"nodes",
+								"{{node_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns a memory usage breakdown of a specific cluster node.",
+					"id": "15942830-e992a177-c59f-4cb1-bc6c-654c628ed197",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/nodes/{{node_name}}/memory",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"nodes",
+								"{{node_name}}",
+								"memory"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-ffb84c0b-04e1-4454-b08f-8681e2b0e013"
+		},
+		{
+			"name": "Connections",
+			"item": [
+				{
+					"name": "A list of all open connections.",
+					"id": "15942830-085c42b8-355f-4c1f-8c1f-14419370186e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/connections",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returns metrics of an individual connection.",
+					"id": "15942830-7efc36f7-cb7f-4aca-b18e-7babd21cf790",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/connections/{{connection_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"connections",
+								"{{connection_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of all channels for a given connection.",
+					"id": "15942830-e1bc0312-a764-4164-b57d-f570d39d5a2e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/connections/{{connection_name}}/channels",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"connections",
+								"{{connection_name}}",
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all open connections that authenticated using a specific username.",
+					"id": "15942830-c59f16c3-3859-4b81-a098-325b38b1d015",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/connections/username/{{user_internal_store}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"connections",
+								"username",
+								"{{user_internal_store}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-e5f6222c-f100-43b0-86b3-cb455c487993"
+		},
+		{
+			"name": "Channels",
+			"item": [
+				{
+					"name": "A list of all open channels.",
+					"id": "15942830-152ea0bb-93ab-4233-8f18-d740fafdb7c2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/channels",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Channel Details",
+					"id": "15942830-b6667c4e-27cc-49a3-a3b4-70fbe455f107",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/channels/{{channel_name}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"channels",
+								"{{channel_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details about an individual channel.",
+					"id": "15942830-27f6d66c-283d-47a0-b4ec-70da9a2eae78",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/channels/{{channel_id}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"channels",
+								"{{channel_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-a3909df9-d826-4a8f-8eac-fc193b237010"
+		},
+		{
+			"name": "Cluster-name",
+			"item": [
+				{
+					"name": "Returns the name identifying this RabbitMQ cluster.",
+					"id": "15942830-dd85a72b-c078-4f63-8a40-dcd182ad9869",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/cluster-name",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"cluster-name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "d",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-ee5ebd86-ae1e-4955-90b4-6ce9ba514e7e"
+		},
+		{
+			"name": "Definitions",
+			"item": [
+				{
+					"name": "Exports cluster-wide definitions",
+					"id": "15942830-8bea1f28-7b91-4d5f-9618-cc7077007c36",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/definitions",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exports definitions of a single virtual host.",
+					"id": "15942830-fefae293-2184-43cb-b022-fe79d8ee0b5e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/definitions/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"definitions",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-db1a06b4-2e58-4479-8410-1ddeaac39b61"
+		},
+		{
+			"name": "Feature-flags",
+			"item": [
+				{
+					"name": "Lists all feature flags and their state.",
+					"id": "15942830-b7e0e97b-666a-4252-bcee-2f14847bd18e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/feature-flags",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"feature-flags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists all deprecated features and their state.",
+					"id": "15942830-df8e68c9-5e3b-4e13-9031-732187f3db94",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/deprecated-features",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"deprecated-features"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists the deprecated features that are used in this cluster.",
+					"id": "15942830-933d2665-2957-4dd2-8b8b-b891be2482e0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/deprecated-features/used",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"deprecated-features",
+								"used"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-07a92e93-7846-4776-9910-92cbe3d8d33a"
+		},
+		{
+			"name": "Consumers",
+			"item": [
+				{
+					"name": "A list of all consumers.",
+					"id": "15942830-97f53420-74a8-4149-b4da-36bfb45da104",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/consumers",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"consumers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A list of all consumers in a given virtual host.",
+					"id": "15942830-3d4b75bb-2bc0-4915-8317-6ecd4c0afe68",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedAuth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{rabbitmq_host}}/api/consumers/{{vhost}}",
+							"host": [
+								"{{rabbitmq_host}}"
+							],
+							"path": [
+								"api",
+								"consumers",
+								"{{vhost}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15942830-2335cfeb-dc94-4c72-948f-9c4bc7973ee5"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{rabbitmq_pass}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{rabbitmq_user}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e19dbcd1-9e47-48a2-8c4e-a28519b36fb6",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "318c6243-bdc8-44e8-8b41-0f25f91fee90",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "rabbitmq_host",
+			"value": "http://localhost:15672"
+		},
+		{
+			"key": "rabbitmq_user",
+			"value": "guest"
+		},
+		{
+			"key": "rabbitmq_pass",
+			"value": "guest"
+		},
+		{
+			"key": "vhost",
+			"value": "/"
+		},
+		{
+			"key": "exchange_name",
+			"value": "my-exchange"
+		},
+		{
+			"key": "queue_name",
+			"value": "my-queue"
+		},
+		{
+			"key": "channel_name",
+			"value": "channel-id"
+		},
+		{
+			"key": "connection_name",
+			"value": "connection-id"
+		},
+		{
+			"key": "node_name",
+			"value": "rabbit@node01-v4"
+		},
+		{
+			"key": "policy_name",
+			"value": "my-policy"
+		},
+		{
+			"key": "parameter_component",
+			"value": "federation"
+		},
+		{
+			"key": "parameter_name",
+			"value": "my-param"
+		},
+		{
+			"key": "base64EncodedAuth",
+			"value": "Z3Vlc3Q6Z3Vlc3Q="
+		},
+		{
+			"key": "properties_key",
+			"value": "hubbix-businessmanagement-in",
+			"type": "default"
+		},
+		{
+			"key": "exchange_destination",
+			"value": "demo-dlq-classic-deadletter-exchange",
+			"type": "default"
+		},
+		{
+			"key": "exchange_source",
+			"value": "poc_direct_exchange",
+			"type": "string"
+		},
+		{
+			"key": "user_internal_store",
+			"value": "fschmidt",
+			"type": "default"
+		},
+		{
+			"key": "op-name",
+			"value": "op-demo",
+			"type": "default"
+		},
+		{
+			"key": "stream_name",
+			"value": "demo-dd",
+			"type": "default"
+		},
+		{
+			"key": "within",
+			"value": "1",
+			"type": "default"
+		},
+		{
+			"key": "unit",
+			"value": "months",
+			"type": "default"
+		},
+		{
+			"key": "port",
+			"value": "15672",
+			"type": "default"
+		},
+		{
+			"key": "protocols",
+			"value": "amqp091",
+			"type": "default"
+		},
+		{
+			"key": "channel_id",
+			"value": "1",
+			"type": "default"
+		}
+	]
+}
