@@ -66,7 +66,7 @@
 					"response": []
 				},
 				{
-					"name": "A list of all bindings between an exchange and a queue.",
+					"name": "Returns a list of all bindings between an exchange and a queue.",
 					"id": "15942830-bb7f2651-7b5a-4045-90cd-36cc0c40b83c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
